@@ -489,3 +489,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   jumpForce: 10
+  pajaro: {fileID: 1654924770}
