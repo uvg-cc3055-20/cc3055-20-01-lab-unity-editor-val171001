@@ -20,26 +20,31 @@ public class BirdScript : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		// Verificarr que siga vivo
+		// Verify player is alive
 		if (dead.Equals (false)) {
-			// Moverse horizontalmente
+			// Horizontal movement
 			rb.transform.Translate (new Vector3 (1, 0, 0) * forwardSpeed * Time.deltaTime);
 
-			// Camara siga al personaje
+			// Camera follows character
 			cam.transform.Translate (new Vector3 (1, 0, 0) * forwardSpeed * Time.deltaTime);
 
-			// Saltar al presionar la barra espaciadora
+			// Jump pressing the space bar
 			if (Input.GetButtonDown ("Jump")) {
 				rb.velocity = Vector2.zero;
 				rb.AddForce (Vector2.up * jumpForce);
 			}
 		}
 
+		// Dead at the end of the level
+		if (rb.position.x >= 42.5) {
+			dead = true;
+		}
+
 	}
 
 	// Defeat function
 	private void OnCollisionEnter2D(Collision2D collision){
-		dead = false;
+		dead = true;
 	}
 
 
