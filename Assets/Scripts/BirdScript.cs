@@ -39,7 +39,7 @@ public class BirdScript : MonoBehaviour {
 
 	// Defeat function
 	private void OnCollisionEnter2D(Collision2D collision){
-		dead = false;
+		dead = true;
 	}
 
 
